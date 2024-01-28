@@ -29,7 +29,7 @@ export default function Projects()
                 {
                     console.log(data[`${i}`]);
                     arr.push(
-                        <div key = {i} className = 'box-border w-full h-28 flex justify-between hover:cursor-pointer' onClick={() => {navigate(`/project/${i}`)}}>
+                        <div key = {i} className = 'box-border w-full h-28 flex justify-between hover:cursor-pointer' onClick={() => {navigate(`portfolio/project/${i}`)}}>
                             <div className = 'c1:w-400 w-8/12 box-border pl-2 pt-2 pr-4 h-full flex flex-col'>
                                 <div className="font-semibold c2:text-xl c2:line-clamp-none line-clamp-1">
                                     {data[`${i}`][0]}
