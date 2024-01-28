@@ -39,7 +39,7 @@ function App() {
         <ScrollToTop />
         <Routes>
           <Route path="/portfolio" element={<Home darkMode={darkMode} setDarkMode={setDarkMode}/>} />
-          <Route path="/portfolio/project/:id" element={<DisplayProject darkMode={darkMode} setDarkMode={setDarkMode}/>} />
+          <Route path="/project/:id" element={<DisplayProject darkMode={darkMode} setDarkMode={setDarkMode}/>} />
           {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
       </Router>
