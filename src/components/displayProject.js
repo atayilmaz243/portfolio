@@ -117,7 +117,7 @@ export default function DisplayProject({darkMode,setDarkMode})
 
             <div className='dark:bg-neutral-900 bg-white bg_trans c1:w-800 w-screen flex flex-col items-center relative rounded dark:text-neutral-300 pb-12 min-h-screen'>
                 <div className = 'flex gap-4 c1:w-600 w-10/12 mt-12'>
-                    <div onClick = {() => {navigate('/')}}>
+                    <div onClick = {() => {navigate('/portfolio/')}}>
                         <GoBack />
                     </div>
                     <div onClick={() => {setDarkMode(!darkMode)}}>
