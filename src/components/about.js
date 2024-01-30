@@ -1,5 +1,5 @@
 
-import light_bg from '../images/wintr.png'
+import light_bg from '../images/wintrcompressed.png'
 import { GitHub, LinkedIn } from './svg';
 
 export default function About({darkMode})
