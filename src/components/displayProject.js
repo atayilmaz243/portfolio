@@ -19,8 +19,11 @@ async function Info(id)
         console.log(docobj.data());
         return (
             <>
-                <div className = 'text-2xl c1:w-600 w-10/12 mt-4 font-semibold dark:text-gray-300'>
-                    {docobj.data().header}
+                <div className = 'text-2xl c1:w-600 w-10/12 mt-4 flex items-center gap-2 font-semibold dark:text-gray-300'>
+                    {docobj.data().icon && <img className = "w-6 h-6 object-cover" src = {docobj.data().icon} alt = ""/>}
+                    <div>
+                        {docobj.data().header}
+                    </div>
                 </div>
                 <div className = 'c1:w-600 w-10/12 text-justify mt-8 dark:text-gray-300 text-gray-900' >
                     {docobj.data().description}
