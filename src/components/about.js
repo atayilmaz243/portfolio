@@ -20,11 +20,11 @@ export default function About({darkMode})
         </div>
 
         <div className = 'c1:w-600 w-10/12 flex flex-wrap mt-6 gap-2'>
-            <div className = "h-8 dark:bg-neutral-800 rounded bg-slate-100 bg_trans text-center pr-2 pl-2 gap-2 flex items-center cursor-pointer dark:hover:text-neutral-100"><div><GitHub /></div><div>GitHub</div></div>
-            <div className = "h-8 dark:bg-neutral-800 rounded bg-slate-100 bg_trans text-center pr-2 pl-2 gap-2 flex items-center cursor-pointer dark:hover:text-neutral-100"><div><LinkedIn /></div><div>LinkedIn</div></div>
-            <div className = "h-8 dark:bg-neutral-800 rounded bg-slate-100 bg_trans text-center pr-2 pl-2 gap-2 flex items-center cursor-pointer dark:hover:text-neutral-100"><div>Codeforces</div></div>
-            <div className = "h-8 dark:bg-neutral-800 rounded bg-slate-100 bg_trans text-center pr-2 pl-2 gap-2 flex items-center cursor-pointer dark:hover:text-neutral-100"><div>Leetcode</div></div>
-            <div className = "h-8 dark:bg-neutral-800 rounded bg-slate-100 bg_trans text-center pr-2 pl-2 gap-2 flex items-center cursor-pointer dark:hover:text-neutral-100"><div>HackerRank</div></div>
+            <div className = "h-8 dark:bg-neutral-800 rounded bg-slate-100 bg_trans text-center pr-2 pl-2 gap-2 flex items-center cursor-pointer dark:hover:text-neutral-100" onClick={() => {window.open('https://github.com/atayilmaz243', '_blank');}}><div><GitHub /></div><div>GitHub</div></div>
+            <div className = "h-8 dark:bg-neutral-800 rounded bg-slate-100 bg_trans text-center pr-2 pl-2 gap-2 flex items-center cursor-pointer dark:hover:text-neutral-100" onClick={() => {window.open('https://www.example.com', '_blank');}}><div><LinkedIn /></div><div>LinkedIn</div></div>
+            <div className = "h-8 dark:bg-neutral-800 rounded bg-slate-100 bg_trans text-center pr-2 pl-2 gap-2 flex items-center cursor-pointer dark:hover:text-neutral-100" onClick={() => {window.open('https://www.example.com', '_blank');}}><div>Codeforces</div></div>
+            <div className = "h-8 dark:bg-neutral-800 rounded bg-slate-100 bg_trans text-center pr-2 pl-2 gap-2 flex items-center cursor-pointer dark:hover:text-neutral-100" onClick={() => {window.open('https://leetcode.com/hakanatayilmaz243/', '_blank');}}><div>Leetcode</div></div>
+            <div className = "h-8 dark:bg-neutral-800 rounded bg-slate-100 bg_trans text-center pr-2 pl-2 gap-2 flex items-center cursor-pointer dark:hover:text-neutral-100" onClick={() => {window.open('https://www.hackerrank.com/profile/hakanatayilmaz21', '_blank');}}><div>HackerRank</div></div>
 
         </div>
         </>

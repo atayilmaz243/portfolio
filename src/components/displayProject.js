@@ -1,6 +1,6 @@
 
 import { useNavigate, useParams } from "react-router-dom";
-import { GoBack, Loading, Moon, Sun } from "./svg";
+import { GitHub, Globe, GoBack, Loading, Moon, Sun } from "./svg";
 import { firestore } from "../firebase";
 import {doc, getDoc } from 'firebase/firestore';
 import { useEffect, useState } from "react";
@@ -24,6 +24,10 @@ async function Info(id)
                 </div>
                 <div className = 'c1:w-600 w-10/12 text-justify mt-8 dark:text-gray-300 text-gray-900' >
                     {docobj.data().description}
+                </div>
+                <div className = 'c1:w-600 w-10/12 flex flex-wrap mt-6 gap-2'>
+                    {docobj.data().github && <div className = "h-8 dark:bg-neutral-800 rounded bg-slate-100 bg_trans text-center pr-2 pl-2 gap-2 flex items-center cursor-pointer dark:hover:text-neutral-100" onClick={() => {window.open(docobj.data().github, '_blank');}}><div><GitHub /></div><div>GitHub</div></div>}
+                    {docobj.data().web && <div className = "h-8 dark:bg-neutral-800 rounded bg-slate-100 bg_trans text-center pr-2 pl-2 gap-2 flex items-center cursor-pointer dark:hover:text-neutral-100" onClick={() => {window.open(docobj.data().web, '_blank');}}><div><Globe /></div><div>Live server</div></div>}
                 </div>
             </>
         );
