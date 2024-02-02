@@ -143,8 +143,8 @@ export default function Contact({contactOpen,setContactOpen,darkMode})
         // eslint-disable-next-line
     }, []);
     return contactOpen && (<>
-        <div className = "w-screen h-screen flex items-center justify-center fixed dark:bg-black dark:bg-opacity-60 bg-white bg-opacity-60 backdrop-blur-sm z-50">
-            <div ref = {contactRef} className = "w-full h-full c3:h-auto c3:w-400 gap-6 dark:bg-neutral-900 bg-white rounded-md flex flex-col justify-between c3:justify-normal items-center">
+        <div className = "w-screen h-screen flex items-center justify-center fixed dark:bg-black dark:c3:bg-opacity-60 bg-white c3:bg-opacity-60 backdrop-blur-sm z-50">
+            <div ref = {contactRef} className = "w-full h-full c3:h-auto c3:w-400 gap-6 dark:bg-neutral-900 bg-white rounded-md flex flex-col justify-center c3:justify-normal items-center">
                 <div className = "w-full pl-8 pr-8 pt-4 pb-4 c3:rounded-t-md transition-colors duration-1000 ease-in-out dark:text-white text-gray-900" style = {{backgroundColor:headBC}}>
                     <div className = "font-medium text-lg">
                         Contact
