@@ -16,7 +16,7 @@ async function Info(id)
             return null;
         }
 
-        console.log(docobj.data());
+        // console.log(docobj.data());
         return (
             <>
                 <div className = 'text-2xl c1:w-600 w-10/12 mt-4 flex items-center gap-2 font-semibold dark:text-gray-300'>
@@ -115,9 +115,6 @@ export default function DisplayProject({darkMode,setDarkMode})
         fetchData();
     },[id])
 
-    useEffect(() => {
-        console.log(Sinfo);
-    },[Sinfo]);
 
     return (
         <div className = 'flex bg-slate-100 bg_trans dark:bg-neutral-800 justify-center items-center c1:pt-4 c1:pb-4'>

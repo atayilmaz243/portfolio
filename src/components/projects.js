@@ -22,12 +22,12 @@ export default function Projects()
                     return null;
                 }
                 const data = docObj.data();
-                console.log(data);
+                // console.log(data);
                 let arr = [];
-                console.log(data.count);
+                // console.log(data.count);
                 for (let i=1 ; data.count >=i ; i++)
                 {
-                    console.log(data[`${i}`]);
+                    // console.log(data[`${i}`]);
                     arr.push(
                         <div key = {i} className = 'box-border w-full h-28 flex justify-between hover:cursor-pointer' onClick={() => {navigate(`/project/${i}`)}}>
                             <div className = 'c1:w-400 w-8/12 box-border pl-2 pt-2 pr-4 h-full flex flex-col'>
