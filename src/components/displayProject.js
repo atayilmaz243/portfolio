@@ -120,26 +120,27 @@ export default function DisplayProject({darkMode,setDarkMode})
         <div className = 'flex bg-slate-100 bg_trans dark:bg-neutral-800 justify-center items-center c1:pt-4 c1:pb-4'>
 
             <div className='dark:bg-neutral-900 bg-white bg_trans c1:w-800 w-screen flex flex-col items-center relative rounded dark:text-neutral-300 pb-12 min-h-screen'>
-                <div className = 'flex gap-4 c1:w-600 w-10/12 mt-12'>
-                    <div onClick = {() => {navigate('/portfolio/')}}>
-                        <GoBack />
+                <span className = 'load-page-animation flex flex-col flex flex-col items-center'>
+                    <div className = 'flex gap-4 c1:w-600 w-10/12 mt-12'>
+                        <div onClick = {() => {navigate('/portfolio/')}}>
+                            <GoBack />
+                        </div>
+                        <div onClick={() => {setDarkMode(!darkMode)}}>
+                            {!darkMode ? <Sun /> : <Moon />}
+                        </div>
                     </div>
-                    <div onClick={() => {setDarkMode(!darkMode)}}>
-                        {!darkMode ? <Sun /> : <Moon />}
-                    </div>
-                </div>
 
-                {Sinfo ? 
-                <> 
-                    {Sinfo}
-                    {Sfeatures}
-                </> :
-                    <div className = 'flex fixed w-screen h-screen items-center justify-center pointer-events-none'>
-                        <Loading />
-                    </div>
-                }   
+                    {Sinfo ? 
+                    <> 
+                        {Sinfo}
+                        {Sfeatures}
+                    </> :
+                        <div className = 'flex fixed w-screen h-screen items-center justify-center pointer-events-none'>
+                            <Loading />
+                        </div>
+                    }   
 
-
+                </span>
             </div>
         </div>
     );
