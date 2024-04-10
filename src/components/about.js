@@ -1,6 +1,6 @@
 
 import light_bg from '../images/wintrcompressed.png'
-import { GitHub, LinkedIn } from './svg';
+import { GitHub, Leetcode, LinkedIn } from './svg';
 import "../styles/animation.css"
 import Projects from './projects';
 
@@ -35,7 +35,7 @@ export default function About({darkMode,language})
             <div className = 'c1:w-600 w-10/12 flex flex-wrap mt-6 gap-2'>
                 <div className = "h-8 dark:bg-neutral-800 rounded bg-slate-100 bg_trans text-center pr-2 pl-2 gap-2 flex items-center cursor-pointer dark:hover:text-neutral-100" onClick={() => {window.open('https://github.com/atayilmaz243', '_blank');}}><div><GitHub /></div><div>GitHub</div></div>
                 <div className = "h-8 dark:bg-neutral-800 rounded bg-slate-100 bg_trans text-center pr-2 pl-2 gap-2 flex items-center cursor-pointer dark:hover:text-neutral-100" onClick={() => {window.open('https://www.example.com', '_blank');}}><div><LinkedIn /></div><div>LinkedIn</div></div>
-                <div className = "h-8 dark:bg-neutral-800 rounded bg-slate-100 bg_trans text-center pr-2 pl-2 gap-2 flex items-center cursor-pointer dark:hover:text-neutral-100" onClick={() => {window.open('https://leetcode.com/hakanatayilmaz243/', '_blank');}}><div>Leetcode</div></div>
+                <div className = "h-8 dark:bg-neutral-800 rounded bg-slate-100 bg_trans text-center pr-2 pl-2 gap-2 flex items-center cursor-pointer dark:hover:text-neutral-100" onClick={() => {window.open('https://leetcode.com/hakanatayilmaz243/', '_blank');}}><div><Leetcode /></div><div>Leetcode</div></div>
 
             </div>
             <Projects language={language} />
