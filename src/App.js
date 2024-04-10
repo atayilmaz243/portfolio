@@ -17,6 +17,7 @@ function ScrollToTop() {
 
 function App() {
     const [darkMode,setDarkMode] = useState(true);
+    const [language,setLanguage] = useState("turkish");
     useEffect(() => {
       if (darkMode)
       {   
@@ -38,8 +39,8 @@ function App() {
       <Router>
         <ScrollToTop />
         <Routes>
-          <Route path="/portfolio" element={<Home darkMode={darkMode} setDarkMode={setDarkMode}/>} />
-          <Route path="/project/:id" element={<DisplayProject darkMode={darkMode} setDarkMode={setDarkMode}/>} />
+          <Route path="/portfolio" element={<Home darkMode={darkMode} setDarkMode={setDarkMode} language = {language} setLanguage = {setLanguage} />} />
+          <Route path="/project/:id" element={<DisplayProject darkMode={darkMode} setDarkMode={setDarkMode} language={language} setLanguage={setLanguage}/>} />
           {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
       </Router>

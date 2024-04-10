@@ -1,11 +1,10 @@
-
 import { useNavigate, useParams } from "react-router-dom";
 import { GitHub, Globe, GoBack, Loading, Moon, Sun } from "./svg";
 import { firestore } from "../firebase";
 import {doc, getDoc } from 'firebase/firestore';
 import { useEffect, useState } from "react";
 
-async function Info(id)
+async function Info(id,language)
 {
     const docRef = doc(firestore,`${id}`,'info');
     try {
@@ -26,11 +25,11 @@ async function Info(id)
                     </div>
                 </div>
                 <div className = 'c1:w-600 w-10/12 text-justify mt-8 dark:text-gray-300 text-gray-900' >
-                    {docobj.data().description}
+                    {docobj.data().descriptionTR ? (language === "turkish" ? docobj.data().descriptionTR :docobj.data().description) : docobj.data().description}
                 </div>
                 <div className = 'c1:w-600 w-10/12 flex flex-wrap mt-6 gap-2'>
                     {docobj.data().github && <div className = "h-8 dark:bg-neutral-800 rounded bg-slate-100 bg_trans text-center pr-2 pl-2 gap-2 flex items-center cursor-pointer dark:hover:text-neutral-100" onClick={() => {window.open(docobj.data().github, '_blank');}}><div><GitHub /></div><div>GitHub</div></div>}
-                    {docobj.data().web && <div className = "h-8 dark:bg-neutral-800 rounded bg-slate-100 bg_trans text-center pr-2 pl-2 gap-2 flex items-center cursor-pointer dark:hover:text-neutral-100" onClick={() => {window.open(docobj.data().web, '_blank');}}><div><Globe /></div><div>Live server</div></div>}
+                    {docobj.data().web && <div className = "h-8 dark:bg-neutral-800 rounded bg-slate-100 bg_trans text-center pr-2 pl-2 gap-2 flex items-center cursor-pointer dark:hover:text-neutral-100" onClick={() => {window.open(docobj.data().web, '_blank');}}><div><Globe /></div><div>{language == 'turkish' ? "Web'de incele": "Inspect on Web"}</div></div>}
                 </div>
             </>
         );
@@ -41,7 +40,7 @@ async function Info(id)
 
 }
 
-async function Features(id) {
+async function Features(id,language) {
     try {
         const docRef = doc(firestore, `${id}`, 'features');
         const docSnapshot = await getDoc(docRef);
@@ -98,7 +97,7 @@ async function Features(id) {
     }
 }
 
-export default function DisplayProject({darkMode,setDarkMode})
+export default function DisplayProject({darkMode,setDarkMode,language,setLanguage})
 {
     const navigate = useNavigate();
     const [Sinfo,setInfo] = useState(null);
@@ -106,14 +105,14 @@ export default function DisplayProject({darkMode,setDarkMode})
     const { id } = useParams();
     useEffect(() => {
         async function fetchData()  { 
-            const [resInfo,resFeatures] = await Promise.all([Info(id),Features(id)]);
+            const [resInfo,resFeatures] = await Promise.all([Info(id,language),Features(id,language)]);
             
             setInfo(resInfo);
             setFeatures(resFeatures);
 
         }
         fetchData();
-    },[id])
+    },[id,language])
 
 
     return (
@@ -121,12 +120,30 @@ export default function DisplayProject({darkMode,setDarkMode})
 
             <div className='dark:bg-neutral-900 bg-white bg_trans c1:w-800 w-screen flex flex-col items-center relative rounded dark:text-neutral-300 pb-12 min-h-screen'>
                 <span className = 'load-page-animation flex flex-col flex flex-col items-center'>
-                    <div className = 'flex gap-4 c1:w-600 w-10/12 mt-12'>
+                    <div className = 'flex c1:w-600 w-10/12 mt-12 items-center justify-between'>
                         <div onClick = {() => {navigate('/portfolio/')}}>
                             <GoBack />
                         </div>
-                        <div onClick={() => {setDarkMode(!darkMode)}}>
-                            {!darkMode ? <Sun /> : <Moon />}
+                        <div className = 'flex items-center'>
+                            <div className = 'text-lg font-medium cursor-pointer ml-8 mr-0' onClick={() => {
+                                if (language === "turkish")
+                                {
+                                    setLanguage("english");
+                                }
+                                else
+                                {
+                                    setLanguage("turkish");
+                                }
+                                }}>
+                                {language === "turkish" ? "TR" : "EN" }
+                            </div>
+                            <div className = 'w-px h-5 dark:bg-white bg-black mr-2 ml-2 rounded-full'>
+                            
+                            </div>
+                            <div onClick={() => {setDarkMode(!darkMode)}}>
+                                {!darkMode ? <Sun /> : <Moon />}
+                            </div>
+
                         </div>
                     </div>
 

@@ -14,7 +14,7 @@ function LoadingSVG()
         </div>
     </>;
 }
-function Button1({handleSubmit,operation})
+function Button1({handleSubmit,operation,language})
 {
     return <>
         <button onClick = {() => {handleSubmit();}} type="button" className="flex px-3 py-2 text-sm font-medium text-center items-center text-white  bg-blue-400 rounded-md hover:bg-blue-500 focus:outline-none dark:bg-blue-600 dark:hover:bg-blue-700 ">
@@ -23,20 +23,20 @@ function Button1({handleSubmit,operation})
         <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
         </svg>
             {operation !== "processing" ?
-                "Send" : <LoadingSVG /> }
+                (language === "turkish" ? "Gönder" : "Send") : <LoadingSVG /> }
         </button>
     </>
 }
 
 
-function Button2({setContactOpen})
+function Button2({setContactOpen,language})
 {
     return <>
         <button onClick = {() => {setContactOpen(false);}} type="button" className="flex px-3 py-2 text-sm font-medium text-center items-center dark:text-white text-gray-700 bg-slate-200 rounded-md hover:bg-slate-300  focus:outline-none dark:bg-neutral-800 dark:hover:bg-neutral-700 ">
             <svg className="w-4 h-4 dark:text-white text-gray-700 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m15 9-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
             </svg>
-            Close
+            {language === "turkish" ? "Kapat" : "Close"}
         </button>
     </>
 }
@@ -46,7 +46,7 @@ function validateEmail(email) {
     return regex.test(email);
 }
 
-export default function Contact({contactOpen,setContactOpen,darkMode})
+export default function Contact({contactOpen,setContactOpen,darkMode,language})
 {
     const [from,setFrom] = useState("");
     const [message,setMessage] = useState("");
@@ -147,33 +147,33 @@ export default function Contact({contactOpen,setContactOpen,darkMode})
             <div ref = {contactRef} className = "w-full h-full c3:h-auto c3:w-400 gap-6 dark:bg-neutral-900 bg-white rounded-md flex flex-col justify-center c3:justify-normal items-center">
                 <div className = "w-full pl-8 pr-8 pt-4 pb-4 c3:rounded-t-md transition-colors duration-1000 ease-in-out dark:text-white text-gray-900" style = {{backgroundColor:headBC}}>
                     <div className = "font-medium text-lg">
-                        Contact
+                        {language === "turkish" ? "İletişim" : "Contact"}
                     </div>
                     <div className = "font-medium text-sm dark:text-blue-100">
-                        Please dont hesitate to contact with me about anything.
+                        {language === "turkish" ? "Lütfen herhangi bir konu için iletişime geçmekten çekinmeyin." : "Please dont hesitate to contact with me about anything."}
                     </div>
                 </div>
                 <form id = "contactForm" className = "w-full pl-8 pr-8 flex flex-col gap-1 ">
                     <div className = "font-medium">
-                        From
+                        {language === "turkish" ? "Kimden" : "From"}
                     </div>
-                    <input className = "w-full h-8 dark:bg-slate-700 bg-neutral-200 rounded-sm pl-2" type = "text" value = {from} onChange={handleFormChange} placeholder= "Please enter your email." />
+                    <input className = "w-full h-8 dark:bg-slate-700 bg-neutral-200 rounded-sm pl-2" type = "text" value = {from} onChange={handleFormChange} placeholder= {language === "turkish" ? "Lütfen eposta adresinizi giriniz." : "Please enter your email."} />
                     <div className = "font-medium">
-                        To
+                        {language === "turkish" ? "Kime" : "To"}
                     </div>
                     <input className = "w-full h-8 dark:bg-slate-700 bg-neutral-200 rounded-sm pl-2" type = "text" value = "hakanatayilmaz243@gmail.com" readOnly/>
                     <div className = "font-medium mt-4">
-                        Message
+                        {language === "turkish" ? "Mesaj" : "Message"}
                     </div>
-                    <textarea className = "w-full h-60 dark:bg-slate-700 bg-neutral-200 rounded-sm pl-2 pt-2 resize-none" type = "text" value = {message} onChange = {handleMessageChange} placeholder="Your message"></textarea>
+                    <textarea className = "w-full h-60 dark:bg-slate-700 bg-neutral-200 rounded-sm pl-2 pt-2 resize-none" type = "text" value = {message} onChange = {handleMessageChange} placeholder={language === "turkish" ? "Mesajınız" : "Your message"}></textarea>
                 </form>
                 <div className = "w-full">
                     <div className = "dark:bg-neutral-700 bg-neutral-300" style = {{height: 0.4}}>
 
                     </div>
                     <div className = "w-full pl-8 pr-8 pt-2 pb-2 flex justify-end gap-2">
-                        <Button2 setContactOpen = {setContactOpen}/>
-                        <Button1 handleSubmit = {handleSubmit} operation = {operation} />
+                        <Button2 setContactOpen = {setContactOpen} language = {language}/>
+                        <Button1 handleSubmit = {handleSubmit} operation = {operation} language = {language} />
                     </div>
                 </div>
 
